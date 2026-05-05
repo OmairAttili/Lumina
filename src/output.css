@@ -73,14 +73,23 @@
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-md: 28rem;
+    --container-lg: 32rem;
     --container-7xl: 80rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --radius-md: 0.375rem;
+    --radius-lg: 16px;
     --animate-spin: spin 1s linear infinite;
+    --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animate-bounce: bounce 1s infinite;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -370,11 +379,267 @@
   .mx-auto {
     margin-inline: auto;
   }
+  .apexcharts-canvas {
+    & .apexcharts-tooltip {
+      background-color: primary !important;
+      color: var(--color-body) !important;
+      border: 0 !important;
+      border-radius: var(--radius-base) !important;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+    }
+    .dark & .apexcharts-tooltip {
+      background-color: var(--color-neutral-secondary-medium) !important;
+      color: var(--color-body) !important;
+      border-color: var(--color-default) !important;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+    }
+    & .apexcharts-tooltip .apexcharts-tooltip-title {
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+      padding-right: 0.75rem !important;
+      padding-left: 0.75rem !important;
+      margin-bottom: 0.75rem !important;
+      background-color: var(--color-neutral-tertiary-medium) !important;
+      border-color: var(--color-light) !important;
+      font-size: 0.875rem !important;
+      font-weight: 600 !important;
+      color: var(--color-heading) !important;
+    }
+    .dark & .apexcharts-tooltip .apexcharts-tooltip-title {
+      background-color: var(--color-neutral-tertiary-medium) !important;
+      border-color: var(--color-light) !important;
+      color: var(--color-heading) !important;
+    }
+    & .apexcharts-xaxistooltip {
+      color: var(--color-body) !important;
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+      padding-right: 0.75rem !important;
+      padding-left: 0.75rem !important;
+      border-color: transparent !important;
+      background-color: white !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+    }
+    .dark & .apexcharts-xaxistooltip {
+      color: var(--color-body) !important;
+      background-color: var(--color-neutral-secondary-medium) !important;
+    }
+    & .apexcharts-tooltip .apexcharts-tooltip-text-y-label {
+      color: var(--color-body) !important;
+      font-size: 0.875rem !important;
+    }
+    .dark & .apexcharts-tooltip .apexcharts-tooltip-text-y-label {
+      color: var(--color-body) !important;
+    }
+    & .apexcharts-tooltip .apexcharts-tooltip-text-y-value {
+      color: var(--color-heading);
+      font-size: 0.875rem !important;
+    }
+    .dark & .apexcharts-tooltip .apexcharts-tooltip-text-y-value {
+      color: white !important;
+    }
+    & .apexcharts-xaxistooltip-text {
+      font-weight: 400 !important;
+      font-size: 0.875rem !important;
+    }
+    & .apexcharts-xaxistooltip:after {
+      border-bottom-color: var(--color-neutral-primary-medium) !important;
+    }
+    & .apexcharts-xaxistooltip:before {
+      border-bottom-color: var(--color-neutral-primary-medium) !important;
+    }
+    & .apexcharts-xaxistooltip:after {
+      border-width: 8px !important;
+      margin-left: -8px !important;
+    }
+    & .apexcharts-xaxistooltip:before {
+      border-width: 10px !important;
+      margin-left: -10px !important;
+    }
+    & .apexcharts-tooltip-series-group.apexcharts-active .apexcharts-tooltip-y-group {
+      padding: 0 !important;
+    }
+    & .apexcharts-tooltip-series-group.apexcharts-active {
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+      padding-bottom: 0.75rem !important;
+      background-color: var(--color-neutral-primary-medium) !important;
+      color: var(--color-body) !important;
+    }
+    .dark & .apexcharts-tooltip-series-group.apexcharts-active {
+      background-color: var(--color-neutral-secondary-medium) !important;
+      color: var(--color-body) !important;
+    }
+    & .apexcharts-tooltip-series-group.apexcharts-active:first-of-type {
+      padding-top: 0.75rem !important;
+    }
+    & .apexcharts-legend {
+      padding: 0 !important;
+    }
+    & .apexcharts-legend-text {
+      font-size: 0.75rem !important;
+      font-weight: 500 !important;
+      padding-left: 1.25rem !important;
+      color: var(--color-body) !important;
+    }
+    :is([dir=rtl]) & .apexcharts-legend-text {
+      padding-right: 0.5rem !important;
+    }
+    & .apexcharts-legend-text:not(.apexcharts-inactive-legend):hover {
+      color: var(--color-heading) !important;
+    }
+    .dark & .apexcharts-legend-text {
+      color: var(--color-body) !important;
+    }
+    .dark & .apexcharts-legend-text:not(.apexcharts-inactive-legend):hover {
+      color: heading !important;
+    }
+    & .apexcharts-legend-series {
+      margin-left: 0.5rem !important;
+      margin-right: 0.5rem !important;
+      margin-bottom: 0.25rem !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    .dark & .apexcharts-datalabels-group .apexcharts-text.apexcharts-datalabel-value {
+      fill: white !important;
+    }
+    & .apexcharts-datalabels-group .apexcharts-text.apexcharts-datalabel-label {
+      fill: var(--color-body) !important;
+      font-size: 1rem,[object Object] !important;
+      font-weight: 400 !important;
+    }
+    .dark & .apexcharts-datalabels-group .apexcharts-text.apexcharts-datalabel-label {
+      fill: var(--color-body) !important;
+    }
+    & .apexcharts-datalabels .apexcharts-text.apexcharts-pie-label {
+      font-size: 0.75rem,[object Object] !important;
+      font-weight: 600 !important;
+      text-shadow: none !important;
+      filter: none !important;
+    }
+  }
+  .apexcharts-legend-series {
+    .apexcharts-canvas & {
+      margin-left: 0.5rem !important;
+      margin-right: 0.5rem !important;
+      margin-bottom: 0.25rem !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+  }
+  .apexcharts-tooltip {
+    .apexcharts-canvas & {
+      background-color: primary !important;
+      color: var(--color-body) !important;
+      border: 0 !important;
+      border-radius: var(--radius-base) !important;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+    }
+    .dark .apexcharts-canvas & {
+      background-color: var(--color-neutral-secondary-medium) !important;
+      color: var(--color-body) !important;
+      border-color: var(--color-default) !important;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+    }
+    .apexcharts-canvas & .apexcharts-tooltip-title {
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+      padding-right: 0.75rem !important;
+      padding-left: 0.75rem !important;
+      margin-bottom: 0.75rem !important;
+      background-color: var(--color-neutral-tertiary-medium) !important;
+      border-color: var(--color-light) !important;
+      font-size: 0.875rem !important;
+      font-weight: 600 !important;
+      color: var(--color-heading) !important;
+    }
+    .dark .apexcharts-canvas & .apexcharts-tooltip-title {
+      background-color: var(--color-neutral-tertiary-medium) !important;
+      border-color: var(--color-light) !important;
+      color: var(--color-heading) !important;
+    }
+    .apexcharts-canvas & .apexcharts-tooltip-text-y-label {
+      color: var(--color-body) !important;
+      font-size: 0.875rem !important;
+    }
+    .dark .apexcharts-canvas & .apexcharts-tooltip-text-y-label {
+      color: var(--color-body) !important;
+    }
+    .apexcharts-canvas & .apexcharts-tooltip-text-y-value {
+      color: var(--color-heading);
+      font-size: 0.875rem !important;
+    }
+    :is([dir=rtl]) & .apexcharts-tooltip-marker {
+      margin-right: 0px !important;
+      margin-left: 0.375rem !important;
+    }
+    .dark .apexcharts-canvas & .apexcharts-tooltip-text-y-value {
+      color: white !important;
+    }
+  }
+  .apexcharts-tooltip-marker {
+    :is([dir=rtl]) .apexcharts-tooltip & {
+      margin-right: 0px !important;
+      margin-left: 0.375rem !important;
+    }
+  }
+  .apexcharts-tooltip-title {
+    .apexcharts-canvas .apexcharts-tooltip & {
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+      padding-right: 0.75rem !important;
+      padding-left: 0.75rem !important;
+      margin-bottom: 0.75rem !important;
+      background-color: var(--color-neutral-tertiary-medium) !important;
+      border-color: var(--color-light) !important;
+      font-size: 0.875rem !important;
+      font-weight: 600 !important;
+      color: var(--color-heading) !important;
+    }
+    .dark .apexcharts-canvas .apexcharts-tooltip & {
+      background-color: var(--color-neutral-tertiary-medium) !important;
+      border-color: var(--color-light) !important;
+      color: var(--color-heading) !important;
+    }
+  }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
   .mb-2\.5 {
     margin-bottom: calc(var(--spacing) * 2.5);
+  }
+  .apexcharts-xaxistooltip {
+    .apexcharts-canvas & {
+      color: var(--color-body) !important;
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+      padding-right: 0.75rem !important;
+      padding-left: 0.75rem !important;
+      border-color: transparent !important;
+      background-color: white !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+    }
+    .dark .apexcharts-canvas & {
+      color: var(--color-body) !important;
+      background-color: var(--color-neutral-secondary-medium) !important;
+    }
+    .apexcharts-canvas &:after {
+      border-bottom-color: var(--color-neutral-primary-medium) !important;
+    }
+    .apexcharts-canvas &:before {
+      border-bottom-color: var(--color-neutral-primary-medium) !important;
+    }
+    .apexcharts-canvas &:after {
+      border-width: 8px !important;
+      margin-left: -8px !important;
+    }
+    .apexcharts-canvas &:before {
+      border-width: 10px !important;
+      margin-left: -10px !important;
+    }
   }
   .block {
     display: block;
@@ -391,8 +656,38 @@
   .w-30 {
     width: calc(var(--spacing) * 30);
   }
+  .w-43 {
+    width: calc(var(--spacing) * 43);
+  }
+  .w-43\.25 {
+    width: calc(var(--spacing) * 43.25);
+  }
+  .w-62 {
+    width: calc(var(--spacing) * 62);
+  }
+  .w-62\.5 {
+    width: calc(var(--spacing) * 62.5);
+  }
+  .w-\[1\] {
+    width: 1;
+  }
+  .w-\[173px\] {
+    width: 173px;
+  }
+  .w-\[250px\] {
+    width: 250px;
+  }
+  .w-\[512px\] {
+    width: 512px;
+  }
+  .w-fit {
+    width: fit-content;
+  }
   .w-full {
     width: 100%;
+  }
+  .w-lg {
+    width: var(--container-lg);
   }
   .max-w-md {
     max-width: var(--container-md);
@@ -406,8 +701,17 @@
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
+  .animate-bounce {
+    animation: var(--animate-bounce);
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
   .resize {
     resize: both;
+  }
+  .flex-col {
+    flex-direction: column;
   }
   .items-center {
     align-items: center;
@@ -415,11 +719,29 @@
   .justify-between {
     justify-content: space-between;
   }
+  .justify-center {
+    justify-content: center;
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-5 {
+    gap: calc(var(--spacing) * 5);
+  }
+  .gap-5\.75 {
+    gap: calc(var(--spacing) * 5.75);
+  }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
   }
   .gap-12 {
     gap: calc(var(--spacing) * 12);
+  }
+  .gap-\[23px\] {
+    gap: 23px;
+  }
+  .rounded-\[8px\] {
+    border-radius: 8px;
   }
   .rounded-base {
     border-radius: var(--radius-base);
@@ -427,9 +749,23 @@
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .rounded-md {
+    border-radius: var(--radius-md);
+  }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-\[1\.5px\] {
+    border-style: var(--tw-border-style);
+    border-width: 1.5px;
   }
   .dark {
     & .apexcharts-canvas .apexcharts-tooltip {
@@ -479,8 +815,36 @@
       stroke: var(--color-default) !important;
     }
   }
+  .border-\[\#000613\] {
+    border-color: #000613;
+  }
   .border-default-medium {
     border-color: var(--color-default-medium);
+  }
+  .apexcharts-active {
+    .apexcharts-canvas .apexcharts-tooltip-series-group& .apexcharts-tooltip-y-group {
+      padding: 0 !important;
+    }
+    .apexcharts-canvas .apexcharts-tooltip-series-group& {
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+      padding-bottom: 0.75rem !important;
+      background-color: var(--color-neutral-primary-medium) !important;
+      color: var(--color-body) !important;
+    }
+    .dark .apexcharts-canvas .apexcharts-tooltip-series-group& {
+      background-color: var(--color-neutral-secondary-medium) !important;
+      color: var(--color-body) !important;
+    }
+    .apexcharts-canvas .apexcharts-tooltip-series-group&:first-of-type {
+      padding-top: 0.75rem !important;
+    }
+  }
+  .selectedCell {
+    background-color: var(--color-neutral-secondary-medium);
+    .dark & {
+      background-color: var(--color-neutral-secondary-medium);
+    }
   }
   .bg-\[\#F4F3F6\] {
     background-color: #F4F3F6;
@@ -488,16 +852,100 @@
   .bg-\[\#FAF9FC\] {
     background-color: #FAF9FC;
   }
+  .bg-\[\#FED65B\] {
+    background-color: #FED65B;
+  }
   .dark {
     & .selectedCell {
       background-color: var(--color-neutral-secondary-medium);
     }
   }
+  .apexcharts-datalabels-group {
+    & .apexcharts-text.apexcharts-datalabel-value {
+      fill: var(--color-heading) !important;
+      font-size: 1.875rem,[object Object] !important;
+      font-weight: 700 !important;
+    }
+    .dark .apexcharts-canvas & .apexcharts-text.apexcharts-datalabel-value {
+      fill: white !important;
+    }
+    .apexcharts-canvas & .apexcharts-text.apexcharts-datalabel-label {
+      fill: var(--color-body) !important;
+      font-size: 1rem,[object Object] !important;
+      font-weight: 400 !important;
+    }
+    .dark .apexcharts-canvas & .apexcharts-text.apexcharts-datalabel-label {
+      fill: var(--color-body) !important;
+    }
+  }
+  .apexcharts-datalabel-label {
+    .apexcharts-canvas .apexcharts-datalabels-group .apexcharts-text& {
+      fill: var(--color-body) !important;
+      font-size: 1rem,[object Object] !important;
+      font-weight: 400 !important;
+    }
+    .dark .apexcharts-canvas .apexcharts-datalabels-group .apexcharts-text& {
+      fill: var(--color-body) !important;
+    }
+  }
+  .apexcharts-datalabel-value {
+    .apexcharts-datalabels-group .apexcharts-text& {
+      fill: var(--color-heading) !important;
+      font-size: 1.875rem,[object Object] !important;
+      font-weight: 700 !important;
+    }
+    .dark .apexcharts-canvas .apexcharts-datalabels-group .apexcharts-text& {
+      fill: white !important;
+    }
+  }
+  .apexcharts-gridline {
+    stroke: var(--color-default) !important;
+    .dark & {
+      stroke: var(--color-default) !important;
+    }
+  }
+  .apexcharts-xcrosshairs {
+    stroke: var(--color-default) !important;
+    .dark & {
+      stroke: var(--color-default) !important;
+    }
+  }
+  .apexcharts-ycrosshairs {
+    stroke: var(--color-default) !important;
+    .dark & {
+      stroke: var(--color-default) !important;
+    }
+  }
+  .apexcharts-legend {
+    .apexcharts-canvas & {
+      padding: 0 !important;
+    }
+  }
+  .apexcharts-tooltip-y-group {
+    .apexcharts-canvas .apexcharts-tooltip-series-group.apexcharts-active & {
+      padding: 0 !important;
+    }
+  }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
+  .px-12 {
+    padding-inline: calc(var(--spacing) * 12);
+  }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
+  .py-4\.25 {
+    padding-block: calc(var(--spacing) * 4.25);
+  }
   .py-6 {
     padding-block: calc(var(--spacing) * 6);
+  }
+  .py-12 {
+    padding-block: calc(var(--spacing) * 12);
+  }
+  .py-\[17px\] {
+    padding-block: 17px;
   }
   .ps-3 {
     padding-inline-start: calc(var(--spacing) * 3);
@@ -505,11 +953,35 @@
   .ps-9 {
     padding-inline-start: calc(var(--spacing) * 9);
   }
+  .apexcharts-legend-text {
+    .apexcharts-canvas & {
+      font-size: 0.75rem !important;
+      font-weight: 500 !important;
+      padding-left: 1.25rem !important;
+      color: var(--color-body) !important;
+    }
+    :is([dir=rtl]) .apexcharts-canvas & {
+      padding-right: 0.5rem !important;
+    }
+    .apexcharts-canvas &:not(.apexcharts-inactive-legend):hover {
+      color: var(--color-heading) !important;
+    }
+    .dark .apexcharts-canvas & {
+      color: var(--color-body) !important;
+    }
+    .dark .apexcharts-canvas &:not(.apexcharts-inactive-legend):hover {
+      color: heading !important;
+    }
+  }
   .font-Inter {
     font-family: var(--font-Inter);
   }
   .font-Manrope {
     font-family: var(--font-Manrope);
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
   }
   .text-sm {
     font-size: var(--text-sm);
@@ -519,6 +991,50 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
+  .apexcharts-datalabels {
+    .apexcharts-canvas & .apexcharts-text.apexcharts-pie-label {
+      font-size: 0.75rem,[object Object] !important;
+      font-weight: 600 !important;
+      text-shadow: none !important;
+      filter: none !important;
+    }
+  }
+  .apexcharts-pie-label {
+    .apexcharts-canvas .apexcharts-datalabels .apexcharts-text& {
+      font-size: 0.75rem,[object Object] !important;
+      font-weight: 600 !important;
+      text-shadow: none !important;
+      filter: none !important;
+    }
+  }
+  .apexcharts-xaxistooltip-text {
+    .apexcharts-canvas & {
+      font-weight: 400 !important;
+      font-size: 0.875rem !important;
+    }
+  }
+  .apexcharts-tooltip-text-y-label {
+    .apexcharts-canvas .apexcharts-tooltip & {
+      color: var(--color-body) !important;
+      font-size: 0.875rem !important;
+    }
+    .dark .apexcharts-canvas .apexcharts-tooltip & {
+      color: var(--color-body) !important;
+    }
+  }
+  .apexcharts-tooltip-text-y-value {
+    .apexcharts-canvas .apexcharts-tooltip & {
+      color: var(--color-heading);
+      font-size: 0.875rem !important;
+    }
+    .dark .apexcharts-canvas .apexcharts-tooltip & {
+      color: white !important;
+    }
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
   .font-medium {
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
@@ -526,6 +1042,15 @@
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+  }
+  .text-\[\#735C00\] {
+    color: #735C00;
+  }
+  .text-\[\#43474E\] {
+    color: #43474E;
+  }
+  .text-\[\#\] {
+    color: #;
   }
   .text-heading {
     color: var(--color-heading);
@@ -539,6 +1064,18 @@
   .underline-offset-8 {
     text-underline-offset: 8px;
   }
+  .shadow-2xl {
+    --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-md {
+    --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-xl {
+    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
   .shadow-xs {
     --tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -547,10 +1084,21 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
+  .filter {
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
   .transition-all {
     transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .duration-100 {
+    --tw-duration: 100ms;
+    transition-duration: 100ms;
+  }
+  .duration-200 {
+    --tw-duration: 200ms;
+    transition-duration: 200ms;
   }
   .duration-300 {
     --tw-duration: 300ms;
@@ -565,6 +1113,26 @@
       color: #43474E;
     }
   }
+  .hover\:scale-90 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 90%;
+        --tw-scale-y: 90%;
+        --tw-scale-z: 90%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:scale-95 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 95%;
+        --tw-scale-y: 95%;
+        --tw-scale-z: 95%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
   .hover\:scale-110 {
     &:hover {
       @media (hover: hover) {
@@ -575,10 +1143,87 @@
       }
     }
   }
+  .hover\:animate-bounce {
+    &:hover {
+      @media (hover: hover) {
+        animation: var(--animate-bounce);
+      }
+    }
+  }
+  .hover\:animate-ping {
+    &:hover {
+      @media (hover: hover) {
+        animation: var(--animate-ping);
+      }
+    }
+  }
+  .hover\:animate-pulse {
+    &:hover {
+      @media (hover: hover) {
+        animation: var(--animate-pulse);
+      }
+    }
+  }
   .hover\:animate-spin {
     &:hover {
       @media (hover: hover) {
         animation: var(--animate-spin);
+      }
+    }
+  }
+  .hover\:bg-\[\#FED65B\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #FED65B;
+      }
+    }
+  }
+  .hover\:bg-\[\#FED65B\]\/0 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in oklab, #FED65B 0%, transparent);
+      }
+    }
+  }
+  .hover\:bg-\[\#FED65B\]\/50 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in oklab, #FED65B 50%, transparent);
+      }
+    }
+  }
+  .hover\:bg-\[\#FED65B\]\/60 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in oklab, #FED65B 60%, transparent);
+      }
+    }
+  }
+  .hover\:bg-\[\#FED65B\]\/70 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in oklab, #FED65B 70%, transparent);
+      }
+    }
+  }
+  .hover\:bg-\[\#FED65B\]\/75 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in oklab, #FED65B 75%, transparent);
+      }
+    }
+  }
+  .hover\:bg-\[\#FED65B\]\/80 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in oklab, #FED65B 80%, transparent);
+      }
+    }
+  }
+  .hover\:bg-\[\#FED65B\]\/120 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in oklab, #FED65B 120%, transparent);
       }
     }
   }
@@ -599,6 +1244,16 @@
       --tw-ring-color: var(--color-blue-400);
     }
   }
+  .sm\:flex-row {
+    @media (width >= 40rem) {
+      flex-direction: row;
+    }
+  }
+  .sm\:text-\[16px\] {
+    @media (width >= 40rem) {
+      font-size: 16px;
+    }
+  }
   .md\:block {
     @media (width >= 48rem) {
       display: block;
@@ -607,6 +1262,11 @@
   .lg\:block {
     @media (width >= 64rem) {
       display: block;
+    }
+  }
+  .lg\:flex-row {
+    @media (width >= 64rem) {
+      flex-direction: row;
     }
   }
   .xl\:px-0 {
@@ -1234,6 +1894,59 @@
   inherits: false;
   initial-value: solid;
 }
+@property --tw-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-drop-shadow-size {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -1256,6 +1969,27 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 @layer properties {
@@ -1283,6 +2017,19 @@
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
       --tw-outline-style: solid;
+      --tw-blur: initial;
+      --tw-brightness: initial;
+      --tw-contrast: initial;
+      --tw-grayscale: initial;
+      --tw-hue-rotate: initial;
+      --tw-invert: initial;
+      --tw-opacity: initial;
+      --tw-saturate: initial;
+      --tw-sepia: initial;
+      --tw-drop-shadow: initial;
+      --tw-drop-shadow-color: initial;
+      --tw-drop-shadow-alpha: 100%;
+      --tw-drop-shadow-size: initial;
       --tw-duration: initial;
       --tw-scale-x: 1;
       --tw-scale-y: 1;
