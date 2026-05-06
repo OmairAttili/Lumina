@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
     <link href="./src/output.css" rel="stylesheet">
 </head>
 <body>
@@ -44,7 +45,7 @@
             </div>
         </div>
     </header>
-    <section class="Hero">
+    <section class="Hero py-16.75">
         <div class="container">
             <div class="flex flex-col lg:flex-row items-center justify-center gap-12 px-6 xl:px-0 py-12">
                 <div class="flex flex-col gap-5.75">
@@ -60,7 +61,64 @@
             </div>
         </div>
     </section>
-    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <footer>
+        <div class="container">
+            <div class="bg-[#000613] py-12 px-6">
+                <div>
+                    <h2 class="text-white text-center font-semibold font-Manrope text-[32px] mb-4">Join the Lumina Collective</h2>
+                    <p class="text-[#FFFFFF]/70 text-center font-Inter mb-12">Receive early access to new collections and exclusive<br/>invitations to private events.</p>
+                </div>
+                <form class="flex items-center justify-center gap-4 flex-col sm:flex-row">
+                    <input type="email" placeholder="Email Address" class="rounded-[8px] bg-[#FFFFFF]/5 placeholder:text-[#6B7280] text-white py-4.5 w-full sm:w-fit"/>
+                    <button type="submit" class="cursor-pointer text-white bg-[#735C00] px-12 py-4.25 rounded-[8px] hover:bg-[#735C00]/50 transition-all hover:scale-95 duration-300 w-full sm:w-fit">Subscribe</button>
+                </form>
+            </div>
+            <div class="px-6 pt-12">
+                <div class="flex flex-col md:flex-row gap-6 items-center md:justify-between pb-12">
+                    <div class="flex flex-col gap-3.75 lg:w-fit w-full items-center md:items-start text-center md:text-start">
+                        <h2 class="text-[#000613] font-Manrope text-xl font-bold">LUMINA Luxury</h2>
+                        <p>Redefining luxury through<br/>minimalist design and architectural<br/>precision.</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#"><img src="./src/images/World icon.svg" alt="World icon"/></a>
+                            <a href="#"><img src="./src/images/vol icon.svg" alt="vol icon"/></a>
+                            <a href="#"><img src="./src/images/Mail icon.svg" alt="Mail icon"/></a>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4 w-full lg:w-fit items-center md:items-start text-center md:text-start">
+                        <h2 class="text-[#000613] font-bold font-Manrope">Explore</h2>
+                        <ul class="flex flex-col gap-2">
+                            <li class="text-[#43474E] font-Inter"><a href="#">About Us</a></li>
+                            <li class="text-[#43474E] font-Inter"><a href="#">Collections</a></li>
+                            <li class="text-[#43474E] font-Inter"><a href="#">New Arrivals</a></li>
+                            <li class="text-[#43474E] font-Inter"><a href="#">Sustainability</a></li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col gap-4 w-full lg:w-fit items-center md:items-start text-center md:text-start">
+                        <h2 class="text-[#000613] font-bold font-Manrope">Support</h2>
+                        <ul class="flex flex-col gap-2">
+                            <li class="text-[#43474E] font-Inter"><a href="#">Contact</a></li>
+                            <li class="text-[#43474E] font-Inter"><a href="#">Shipping & Returns</a></li>
+                            <li class="text-[#43474E] font-Inter"><a href="#">FAQ</a></li>
+                            <li class="text-[#43474E] font-Inter"><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col gap-4 w-full lg:w-fit items-center md:items-start text-center md:text-start">
+                        <h2 class="text-[#000613] font-bold font-Manrope">Newsletter</h2>
+                        <p class="text-[#43474E] font-Inter font-semibold text-xs">Stay updated with our latest releases.</p>
+                        <form class="border-b border-[#C4C6CF]">
+                            <input type="email" placeholder="Your email" class="border-0 focus:ring-0 placeholder:text-[#6B7280] px-0"/>
+                            <button type="submit"><img src="./src/images/Arrow icon.svg" alt="Arrow" class="cursor-pointer"/></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="text-center border-t border-[#EFEDF0] text-[#43474E] font-semibold font-Inter text-xs py-6">
+                    <p>© 2024 LUMINA Luxury. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@<x.x.x>/dist/axios.min.js"></script>
     <script src="./src/main.js"></script>
 </body>
 </html>
