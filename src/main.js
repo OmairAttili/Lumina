@@ -7,3 +7,22 @@ const getcategories = async()=>{
     document.querySelector(".categories").innerHTML= displayCategories;
 }
 getcategories();
+const getProducts = async()=>{
+    const response = await axios.get(`https://dummyjson.com/products?limit=10`);
+    const Products = response.data.products;
+    console.log(Products);
+    const displayProducts = Products.map((p)=>{
+        return `<a href="./Products.html?${p.id}" class="flex flex-col gap-4 shadow-md w-fit sm:w-full">
+                    <img src="${p.thumbnail}" alt="Products"/>
+                    <div class="flex items-center justify-between px-3 py-3">
+                        <div class="flex flex-col">
+                            <span class="text-[#000613] font-bold font-Manrope">${p.title}</span>
+                            <span>${p.rating}</span>
+                        </div>
+                        <span class="text-[#000613] font-Inter font-bold">${p.price}$</span>
+                    </div>
+                </a>`
+    }).join("")
+    document.querySelector(".Items").innerHTML = displayProducts;
+}
+getProducts();
