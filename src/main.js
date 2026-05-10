@@ -12,7 +12,7 @@ const getProducts = async()=>{
     const Products = response.data.products;
     console.log(Products);
     const displayProducts = Products.map((p)=>{
-        return `<a href="./Products.html?${p.id}" class="flex flex-col gap-4 shadow-md w-fit sm:w-full">
+        return `<a href="./ProductsDetails.html?${p.id}" class="flex flex-col gap-4 shadow-md w-fit sm:w-full">
                     <img src="${p.thumbnail}" alt="Products"/>
                     <div class="flex items-center justify-between px-3 py-3">
                         <div class="flex flex-col">

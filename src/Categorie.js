@@ -4,7 +4,7 @@ const getProd = async()=>{
     const response = await axios.get(`https://dummyjson.com/products/category/${loc}`)
     const products = response.data.products;
     const getProducts = products.map((p)=>{
-        return `<a href="./Products.html?${p.id}" class="item shadow-md py-4 hover:border transition-all duration-100">
+        return `<a href="./ProductsDetails.html?${p.id}" class="item shadow-md py-4 hover:border transition-all duration-100">
                     <img src="${p.thumbnail}" alt="Product"/>
                     <div class="flex flex-col gap-2 items-center justify-center">
                         <h2>${p.title}</h2>
