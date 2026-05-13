@@ -1,9 +1,9 @@
 @import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.css";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "flowbite/src/themes/default";
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
-@plugin "daisyui";
 @theme{
     --font-Manrope:"Manrope", sans-serif;
     --font-Inter:"Inter", sans-serif;
